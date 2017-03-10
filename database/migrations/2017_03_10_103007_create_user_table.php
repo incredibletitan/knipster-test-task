@@ -17,9 +17,8 @@ class CreateUserTable extends Migration
             $table->increments('id');
             $table->string('email')->unique();
             $table->string('first_name');
-            $table->string('gender');
-            $table->string('name');
             $table->string('last_name');
+            $table->string('gender');
             $table->string('country');
             $table->tinyInteger('balance_percentage');
             $table->float('balance');
