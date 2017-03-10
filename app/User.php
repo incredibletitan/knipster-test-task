@@ -14,5 +14,5 @@ class User extends Model
     /**
      * @inheritdoc
      */
-    protected $fillable = ['email'];
+    protected $fillable = ['email', 'first_name', 'last_name', 'gender', 'country'];
 }

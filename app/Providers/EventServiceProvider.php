@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Event;
+use App\User;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
@@ -27,6 +27,8 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        //
+        User::creating(function ($user) {
+            $user->bonus_percentage = rand(5, 20);
+        });
     }
 }

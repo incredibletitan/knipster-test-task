@@ -25,7 +25,7 @@ class UserController extends Controller
              **/
             return response()->json(['status' => 'success'], 201, ['Location' => $request->getUri() . '/' . $user->id]);
         } catch (QueryException $ex) {
-            Log::error($ex);
+            Log::error($ex->getMessage());
         }
         return response()->json(['status' => 'fail'], 500);
     }

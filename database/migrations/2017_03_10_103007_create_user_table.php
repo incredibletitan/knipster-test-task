@@ -20,7 +20,7 @@ class CreateUserTable extends Migration
             $table->string('last_name')->default('');
             $table->string('gender', 10)->default('');
             $table->string('country', 10)->default('');
-            $table->tinyInteger('balance_percentage')->default(0);
+            $table->tinyInteger('bonus_percentage')->default(0);
             $table->float('balance')->default(0);
             $table->float('bonus_balance')->default(0);
             $table->timestamps();
