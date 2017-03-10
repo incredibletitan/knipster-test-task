@@ -10,4 +10,9 @@ class User extends Model
      * @inheritdoc
      */
     protected $table = 'user';
+
+    /**
+     * @inheritdoc
+     */
+    protected $fillable = ['email'];
 }
