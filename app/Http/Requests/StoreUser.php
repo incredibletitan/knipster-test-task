@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-
-class StoreUser extends FormRequest
+class StoreUser extends JsonRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +11,7 @@ class StoreUser extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +22,9 @@ class StoreUser extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|unique:posts|max:255',
+            'email' => 'required|email|unique:user',
+            'first_name' => 'min:2',
+            'last_name' => 'min:2',
         ];
     }
 }
