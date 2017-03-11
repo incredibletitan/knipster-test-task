@@ -1,14 +1,9 @@
 <?php
 
-namespace App\Http\Validators;
+namespace App\Validators;
 
 use App\User;
 
-/**
- * Class MoneyOperationValidator
- *
- * @author Yuriy Stos
- */
 class MoneyOperationValidator
 {
     /**
@@ -24,6 +19,17 @@ class MoneyOperationValidator
         ) {
             return false;
         }
-        return ($user = User::find($userId)) ? $user->balance > $value : false;
+        return ($balance = $this->getUserBalance($userId)) && $balance > $value ;
+    }
+
+    /**
+     * Returns user balance if
+     *
+     * @param $userId
+     * @return null
+     */
+    protected function getUserBalance($userId)
+    {
+        return ($user = User::find($userId)) ? $user->balance : null;
     }
 }

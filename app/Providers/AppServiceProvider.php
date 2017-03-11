@@ -18,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         Validator::extend(
             'balanceMoreThanWithdrawAmount',
-            'App\Http\Validators\MoneyOperationValidator@balanceMoreThanWithdrawAmount'
+            'App\Validators\MoneyOperationValidator@balanceMoreThanWithdrawAmount'
         );
     }
 
