@@ -7,7 +7,14 @@ use Illuminate\Support\Facades\DB;
 
 class MoneyOperation extends Model
 {
+    /**
+     * Identify DEPOSIT operation
+     */
     const TYPE_DEPOSIT = 1;
+
+    /**
+     * Identify WITHDRAW operation
+     */
     const TYPE_WITHDRAW = 2;
 
     /**
@@ -20,6 +27,11 @@ class MoneyOperation extends Model
      */
     protected $fillable = ['type', 'user_id', 'amount'];
 
+    /**
+     * Creates deposit money operation
+     *
+     * @param array $params
+     */
     public static function deposit(array $params)
     {
         $mergedParams = array_merge(['type' => self::TYPE_DEPOSIT], $params);
@@ -34,6 +46,11 @@ class MoneyOperation extends Model
         });
     }
 
+    /**
+     * Creates withdraw money operation
+     *
+     * @param array $params
+     */
     public static function withdraw(array $params)
     {
         $mergedParams = array_merge(['type' => self::TYPE_WITHDRAW], $params);
