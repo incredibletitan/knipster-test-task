@@ -11,6 +11,12 @@ use App\User;
  */
 class MoneyOperationValidator
 {
+    /**
+     * Compare user balance with amount which needed to be withdrawn.
+     * If balance less than amount - returns false, else - true
+     *
+     * @inheritdoc
+     */
     public function balanceMoreThanWithdrawAmount($attribute, $value, $parameters, $validator)
     {
         if (!isset($parameters[0]) ||
