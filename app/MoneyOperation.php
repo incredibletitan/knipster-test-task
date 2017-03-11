@@ -54,10 +54,10 @@ SELECT
 	CAST(created AS DATE) `date`, 
 	COUNT(DISTINCT `user_id`) AS `unique_customers`, 
 	country,
-	SUM(`number_of_deposits`) AS `number_of_deposits`, 
-	SUM(`total_deposit_amount`) AS `total_deposit_amount`,
-	SUM(`number_of_withdraws`) AS `number_of_withdraws`, 
-	SUM(`total_withdraws_amount`) AS `total_withdraws_amount`
+	IFNULL(SUM(`number_of_deposits`), "0") AS `number_of_deposits`, 
+	IFNULL(SUM(`total_deposit_amount`), "0") AS `total_deposit_amount`,
+	IFNULL(SUM(`number_of_withdraws`), "0") AS `number_of_withdraws`, 
+	IFNULL(SUM(`total_withdraws_amount`), "0") AS `total_withdraws_amount`
 FROM (
 	(
 		SELECT
