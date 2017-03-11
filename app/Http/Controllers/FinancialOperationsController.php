@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Log;
 
 class FinancialOperationsController extends Controller
 {
+    /**
+     * Widraw from use balance
+     *
+     * @param MoneyOperationWithdrawRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function withdraw(MoneyOperationWithdrawRequest $request)
     {
         try {
@@ -22,6 +28,12 @@ class FinancialOperationsController extends Controller
         return response()->json(['status' => 'fail'], 500);
     }
 
+    /**
+     * Deposit user by specified amount
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function deposit(Request $request)
     {
         try {
@@ -33,6 +45,12 @@ class FinancialOperationsController extends Controller
         return response()->json(['status' => 'fail'], 500);
     }
 
+    /**
+     * View Financial report by specified period, group by country
+     *
+     * @param MoneyOperationReportRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index(MoneyOperationReportRequest $request)
     {
         if (!($dateStart = $request->input('date_start'))
