@@ -21,11 +21,13 @@ class StoreUserRequest extends JsonRequest
      */
     public function rules()
     {
+        $lettersOnly = 'regex:/(^[A-Za-z]+$)+/';
         return [
             'email' => 'required|email|unique:user',
-            'first_name' => 'min:2',
-            'last_name' => 'min:2',
-            'country' => 'required|regex:/(^[A-Za-z0-9 ]+$)+/'
+            'first_name' => 'min:2|' . $lettersOnly,
+            'last_name' => 'min:2|' . $lettersOnly,
+            'country' => 'required|' . $lettersOnly,
+            'gender' =>  $lettersOnly,
         ];
     }
 }
