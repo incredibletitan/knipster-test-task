@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MoneyOperationDepositRequest;
 use App\Http\Requests\MoneyOperationReportRequest;
 use App\Http\Requests\MoneyOperationWithdrawRequest;
 use App\MoneyOperation;
 use Illuminate\Database\QueryException;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class FinancialOperationsController extends Controller
 {
     /**
-     * Widraw from use balance
+     * Withdraw from user balance
      *
      * @param MoneyOperationWithdrawRequest $request
      * @return \Illuminate\Http\JsonResponse
@@ -31,10 +31,10 @@ class FinancialOperationsController extends Controller
     /**
      * Deposit user by specified amount
      *
-     * @param Request $request
+     * @param MoneyOperationDepositRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function deposit(Request $request)
+    public function deposit(MoneyOperationDepositRequest $request)
     {
         try {
             MoneyOperation::deposit($request->all());
