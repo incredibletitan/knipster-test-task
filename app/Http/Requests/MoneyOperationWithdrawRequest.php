@@ -22,7 +22,8 @@ class MoneyOperationWithdrawRequest extends JsonRequest
     public function rules()
     {
         return [
-            'user_id' => 'exists:user,id'
+            'user_id' => 'required|exists:user,id',
+            'amount' => 'required|balanceMoreThanWithdrawAmount:user_id'
         ];
     }
 }

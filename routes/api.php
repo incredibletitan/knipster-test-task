@@ -12,7 +12,10 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::post('user/balance/deposit', 'UserBalanceController@deposit');
+
+Route::post('user/balance/withdraw', 'UserBalanceController@withdraw');
 
 Route::resource('user', 'UserController', [
-    'only' => ['store', 'update']
+    'only' => ['store', 'update', 'index']
 ]);
