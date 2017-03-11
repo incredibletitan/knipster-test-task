@@ -10,9 +10,9 @@
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::post('user/balance/deposit', 'UserBalanceController@deposit');
-
-Route::post('user/balance/withdraw', 'UserBalanceController@withdraw');
+Route::post('user/balance/deposit', 'FinancialOperationsController@deposit');
+Route::post('user/balance/withdraw', 'FinancialOperationsController@withdraw');
+Route::get('financial-operations', 'FinancialOperationsController@index');
 
 Route::resource('user', 'UserController', [
     'only' => ['store', 'update']

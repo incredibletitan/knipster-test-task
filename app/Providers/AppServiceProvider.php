@@ -16,9 +16,15 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
         Validator::extend(
             'balanceMoreThanWithdrawAmount',
             'App\Validators\MoneyOperationValidator@balanceMoreThanWithdrawAmount'
+        );
+
+        Validator::extend(
+            'dateStartLessOrEqualThanEnd',
+            'App\Validators\MoneyOperationValidator@dateStartLessOrEqualThanEnd'
         );
     }
 

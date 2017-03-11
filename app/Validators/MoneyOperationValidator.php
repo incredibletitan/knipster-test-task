@@ -23,6 +23,22 @@ class MoneyOperationValidator
     }
 
     /**
+     * Compare user balance with amount which needed to be withdrawn.
+     * If balance less than amount - returns false, else - true
+     *
+     * @inheritdoc
+     */
+    public function dateStartLessOrEqualThanEnd($attribute, $value, $parameters, $validator)
+    {
+        if (!isset($parameters[0]) ||
+            !($comparedDate = array_get($validator->getData(), $parameters[0]))
+        ) {
+            return false;
+        }
+        return strtotime($value) <= strtotime($comparedDate);
+    }
+
+    /**
      * Returns user balance if
      *
      * @param $userId
