@@ -8,7 +8,7 @@ Project url: [Knipster api](http://knipster.ga/api).
 - Rename .env.example file to .env and specify your database connection details
 - Run migrations by "php artisan migrate command"
 - Generate app key by "php artisan key:generate"
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+- For laravel dependent staff visit this link [Laravel installation]( https://laravel.com/docs/5.4/installation)
 
 ## API methods
 
