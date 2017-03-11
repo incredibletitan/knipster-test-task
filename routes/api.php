@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,5 +15,5 @@ Route::post('user/balance/deposit', 'UserBalanceController@deposit');
 Route::post('user/balance/withdraw', 'UserBalanceController@withdraw');
 
 Route::resource('user', 'UserController', [
-    'only' => ['store', 'update', 'index']
+    'only' => ['store', 'update']
 ]);

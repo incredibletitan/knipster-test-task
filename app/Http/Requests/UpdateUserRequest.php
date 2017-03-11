@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-class StoreUser extends JsonRequest
+class UpdateUserRequest extends JsonRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,7 @@ class StoreUser extends JsonRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|unique:user',
+            'email' => 'email|unique:user',
             'first_name' => 'min:2',
             'last_name' => 'min:2',
         ];
