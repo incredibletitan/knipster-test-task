@@ -18,6 +18,6 @@ Laravel has the most extensive and thorough documentation and video tutorial lib
  --- | --- | --- | --- 
 `knipster.ga/api/user` | POST | Creates user|``email``(required) - Email, ``country``(required) - Country, ``first_name`` - First name, ``last_name`` - Last name, ``gender`` - Gender
 `knipster.ga/api/user/{id}` | PUT/PATCH | Updates user|``email`` - Email, ``country`` - Country, ``first_name`` - First name, ``last_name`` - Last name, ``gender`` - Gender
-`knipster.ga/api/user/balance/deposit` | POST | Replenish user's balance|``user_id`` - User id, ``amount`` - Amount
-`knipster.ga/api/user/balance/widraw` | POST | Withdraw money|``user_id`` - User id, ``amount`` - Amount
+`knipster.ga/api/user/balance/deposit` | POST | Replenish user's balance|``user_id``(required) - User id, ``amount``(required) - Amount
+`knipster.ga/api/user/balance/widraw` | POST | Withdraw money|``user_id``(required) - User id, ``amount``(required) - Amount
 `knipster.ga/api/financial-operations` | GET | Withdraw/Deposit operations report |``date_start`` - Start range date. Date in 'Y-m-d' format,``date_end`` - End range date. Date in 'Y-m-d' format
