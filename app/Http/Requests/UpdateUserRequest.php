@@ -25,6 +25,8 @@ class UpdateUserRequest extends JsonRequest
             'email' => 'email|unique:user',
             'first_name' => 'min:2',
             'last_name' => 'min:2',
+            'country' => 'required|regex:/(^[A-Za-z0-9 ]+$)+/',
+            'gender' => 'regex:/(^[A-Za-z0-9 ]+$)+/',
         ];
     }
 }
