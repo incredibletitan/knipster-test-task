@@ -21,7 +21,7 @@ return [
     'alpha_dash'           => 'The :attribute may only contain letters, numbers, and dashes.',
     'alpha_num'            => 'The :attribute may only contain letters and numbers.',
     'array'                => 'The :attribute must be an array.',
-    'balance_more_than_withdraw_amount' => ':attribute must be greater than amount',
+    'balance_more_than_withdraw_amount' => ':attribute must be less than user\'s balance',
     'before'               => 'The :attribute must be a date before :date.',
     'before_or_equal'      => 'The :attribute must be a date before or equal to :date.',
     'between'              => [

@@ -23,7 +23,7 @@ class MoneyOperationDepositRequest extends JsonRequest
     {
         return [
             'user_id' => 'required|exists:user,id',
-            'amount' => 'required'
+            'amount' => 'required|regex:/^\d*(\.\d{2})?$/'
         ];
     }
 }

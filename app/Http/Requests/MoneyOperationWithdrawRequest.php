@@ -23,7 +23,7 @@ class MoneyOperationWithdrawRequest extends JsonRequest
     {
         return [
             'user_id' => 'required|exists:user,id',
-            'amount' => 'required|balanceMoreThanWithdrawAmount:user_id'
+            'amount' => 'required|balanceMoreThanWithdrawAmount:user_id|regex:/^\d*(\.\d{2})?$/'
         ];
     }
 }
