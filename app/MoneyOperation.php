@@ -64,6 +64,13 @@ class MoneyOperation extends Model
         });
     }
 
+    /**
+     * Make a report for specific date range
+     *
+     * @param $dateStart - Date start. Date in Y-m-d format
+     * @param $dateEnd - Date start. Date in Y-m-d format
+     * @return mixed
+     */
     public static function report($dateStart, $dateEnd)
     {
         $query = <<< SQL
