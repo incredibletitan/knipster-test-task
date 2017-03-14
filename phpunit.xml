@@ -23,7 +23,9 @@
         </whitelist>
     </filter>
     <php>
-        <env name="APP_ENV" value="testing"/>
+        <!--<env name="APP_ENV" value="testing"/>-->
+
+        <env name="DB_DEFAULT_CONNECTION" value="testing_db"/>
         <env name="DB_CONNECTION" value="testing_db"/>
         <env name="CACHE_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>

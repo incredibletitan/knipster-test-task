@@ -31,12 +31,13 @@ class MoneyOperation extends Model
      * Creates deposit money operation
      *
      * @param array $params
+     * @return MoneyOperation
      */
     public static function deposit(array $params)
     {
         $mergedParams = array_merge(['type' => self::TYPE_DEPOSIT], $params);
 
-        DB::transaction(function () use ($mergedParams) {
+        return DB::transaction(function () use ($mergedParams) {
             $moneyOperationModel = self::create($mergedParams);
             $user = User::find($moneyOperationModel->user_id);
             $user->increment('balance', $moneyOperationModel->amount);
@@ -55,7 +56,7 @@ class MoneyOperation extends Model
     {
         $mergedParams = array_merge(['type' => self::TYPE_WITHDRAW], $params);
 
-        DB::transaction(function () use ($mergedParams) {
+        return DB::transaction(function () use ($mergedParams) {
             $moneyOperationModel = self::create($mergedParams);
             $user = User::find($moneyOperationModel->user_id);
             $user->decrement('balance', $moneyOperationModel->amount);
