@@ -68,13 +68,13 @@ class MoneyOperation extends Model
     {
         $query = <<< SQL
 SELECT 
-	CAST(created AS DATE) `date`, 
-	COUNT(DISTINCT `user_id`) AS `unique_customers`, 
-	country,
-	IFNULL(SUM(`number_of_deposits`), "0") AS `number_of_deposits`, 
-	IFNULL(SUM(`total_deposit_amount`), "0") AS `total_deposit_amount`,
-	IFNULL(SUM(`number_of_withdraws`), "0") AS `number_of_withdraws`, 
-	IFNULL(SUM(`total_withdraws_amount`), "0") AS `total_withdraws_amount`
+	CAST(`total_union`.created AS DATE) `date`, 
+	COUNT(distinct `total_union`.`user_id`) AS `unique_customers`, 
+	`total_union`.country,
+	IFNULL(SUM(`total_union`.`number_of_deposits`), "0") AS `number_of_deposits`, 
+	IFNULL(SUM(`total_union`.`total_deposit_amount`), "0") AS `total_deposit_amount`,
+	IFNULL(SUM(`total_union`.`number_of_withdraws`), "0") AS `number_of_withdraws`, 
+	IFNULL(SUM(`total_union`.`total_withdraws_amount`), "0") AS `total_withdraws_amount`
 FROM (
 	(
 		SELECT
@@ -89,7 +89,7 @@ FROM (
 			JOIN `user` `u`
 				ON `u`.id = `mo`.user_id
 				WHERE `mo`.type = 1
-				GROUP BY `u`.`country`, CAST(created AS DATE)
+				GROUP BY CAST(created AS DATE), `user_id`, `u`.`country`
 	) 
 	UNION
 	(
@@ -105,11 +105,11 @@ FROM (
 			JOIN `user` `u`
 				ON `u`.id = `mo`.user_id
 				WHERE `mo`.type = 2
-				GROUP BY `u`.`country`, CAST(created AS DATE)
+				GROUP BY CAST(created AS DATE), `user_id`, `u`.`country`
 	)
-) `total`
-WHERE CAST(created AS DATE) >=:date_start AND CAST(created AS DATE) <=:date_end
-GROUP BY country, CAST(created AS DATE)
+) `total_union`
+WHERE CAST(`total_union`.created AS DATE) >=:date_start AND CAST(`total_union`.created AS DATE) <=:date_end 
+GROUP BY CAST(`total_union`.created AS DATE), `total_union`.`country`
 SQL;
         return DB::select(DB::raw($query), [':date_start' => $dateStart, ':date_end' => $dateEnd]);
     }
