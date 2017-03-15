@@ -19,7 +19,7 @@ class MoneyOperationValidator
         ) {
             return false;
         }
-        return ($balance = $this->getUserBalance($userId)) && $balance > $value ;
+        return ($balance = $this->getUserBalance($userId)) && $balance >= $value ;
     }
 
     /**
