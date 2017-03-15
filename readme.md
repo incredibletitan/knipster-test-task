@@ -6,8 +6,10 @@ Project url: [Knipster api](http://knipster.ga/api).
 - Clone this repo to directory on your server
 - Run "composer install" and install all needed dependencies
 - Rename .env.example file to .env and specify your database connection details
-- Run migrations by "php artisan migrate command"
+- Run migrations by "php artisan migrate"
+- Run migrations for test db "php artisan migrate --database=testing_db"
 - Generate app key by "php artisan key:generate"
+- To run unit test just execute this command "vendor/bin/phpunit tests/Unit"
 - For laravel dependent staff visit this link [Laravel installation]( https://laravel.com/docs/5.4/installation)
 
 ## API methods
